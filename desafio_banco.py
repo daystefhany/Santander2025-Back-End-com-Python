@@ -13,7 +13,7 @@ numero_saques = 0
 LIMITE_SAQUES = 3
 
 while True:
-    opcao = input(menu).lower()  # Garantir que a opção seja minúscula
+    opcao = input(menu).lower()
 
     # Depósito
     if opcao == "d":
@@ -35,26 +35,17 @@ while True:
         if valor <= 0:
             print("Saldo insuficiente!")
         elif excedeu_saldo:
-            print("Operação falhou! Você não tem saldo suficiente.")
+            print("Você não tem saldo suficiente.")
         elif excedeu_limite:
-            print("Operação falhou! O valor do saque excede o limite.")
+            print("O valor do saque excede o limite.")
         elif excedeu_saques:
-            print("Operação falhou! Número máximo de saques excedido.")
+            print("Número máximo de saques excedido.")
         else:
             saldo -= valor
             extrato += f"Saque: R$ {valor:.2f}\n"
             numero_saques += 1
             print(f"Saque de R$ {valor:.2f} realizado com sucesso!")
 
-    # Extrato
-    elif opcao == "e":
-        print("\n================ EXTRATO ================")
-        if not extrato:
-            print("Não foram realizadas movimentações.")
-        else:
-            print(extrato)
-        print(f"Saldo: R$ {saldo:.2f}")
-        print("=========================================")
 
     # Sair
     elif opcao == "q":
